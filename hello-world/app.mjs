@@ -15,7 +15,7 @@ export const lambdaHandler = async (event, context) => {
     const response = {
       statusCode: 200,
       body: JSON.stringify({
-        message: 'Feature Testing with AWS Lambda and API Gateway!!',
+        message: 'Feature Testing with AWS Lambda!!',
       })
     };
 
