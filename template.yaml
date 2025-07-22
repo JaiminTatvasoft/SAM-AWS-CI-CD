@@ -1,10 +1,10 @@
-AWSTemplateFormatVersion: '2010-09-09'
+AWSTemplateFormatVersion: "2010-09-09"
 Transform: AWS::Serverless-2016-10-31
 Description: >
   sam-app
 
   Sample SAM Template for sam-app
-  
+
 # More info about Globals: https://github.com/awslabs/serverless-application-model/blob/master/docs/globals.rst
 Globals:
   Function:
@@ -25,6 +25,19 @@ Resources:
           Properties:
             Path: /hello
             Method: get
+
+  ProcessUserFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: process-user/
+      Handler: app.handler
+      Runtime: nodejs20.x
+      Events:
+        ProcessUserAPI:
+          Type: Api
+          Properties:
+            Path: /user
+            Method: post
 
 Outputs:
   # ServerlessRestApi is an implicit API created out of Events key under Serverless::Function
