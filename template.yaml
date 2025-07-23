@@ -14,7 +14,7 @@ Resources:
   HelloWorldFunction:
     Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
     Properties:
-      CodeUri: hello-world/
+      CodeUri: lambda-functions/hello-world/
       Handler: app.lambdaHandler
       Runtime: nodejs22.x
       Architectures:
@@ -29,7 +29,7 @@ Resources:
   ProcessUserFunction:
     Type: AWS::Serverless::Function
     Properties:
-      CodeUri: process-user/
+      CodeUri: lambda-functions/process-user/
       Handler: app.processUserHandler
       Runtime: nodejs22.x
       Architectures:

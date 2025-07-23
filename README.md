@@ -125,3 +125,50 @@ sam delete --stack-name sam-app
 See the [AWS SAM developer guide](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/what-is-sam.html) for an introduction to SAM specification, the SAM CLI, and serverless application concepts.
 
 Next, you can use AWS Serverless Application Repository to deploy ready to use Apps that go beyond hello world samples and learn how authors developed their applications: [AWS Serverless Application Repository main page](https://aws.amazon.com/serverless/serverlessrepo/)
+
+```
+sam-app
+├─ events
+│  └─ event.json
+├─ hello-world
+│  ├─ app.mjs
+│  ├─ package.json
+│  └─ tests
+│     └─ unit
+│        └─ test-handler.mjs
+├─ process-user
+│  ├─ app.mjs
+│  ├─ package-lock.json
+│  ├─ package.json
+│  └─ tests
+│     └─ unit
+│        └─ test-handler.mjs
+├─ README.md
+├─ samconfig.toml
+└─ template.yaml
+
+```
+```
+sam-app
+├─ events
+│  └─ event.json
+├─ lambda-functions
+│  ├─ generate-diagram
+│  ├─ hello-world
+│  │  ├─ app.mjs
+│  │  ├─ package.json
+│  │  └─ tests
+│  │     └─ unit
+│  │        └─ test-handler.mjs
+│  └─ process-user
+│     ├─ app.mjs
+│     ├─ package-lock.json
+│     ├─ package.json
+│     └─ tests
+│        └─ unit
+│           └─ test-handler.mjs
+├─ README.md
+├─ samconfig.toml
+└─ template.yaml
+
+```
