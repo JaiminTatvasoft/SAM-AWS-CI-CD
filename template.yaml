@@ -9,6 +9,9 @@ Description: >
 Globals:
   Function:
     Timeout: 30
+    Environment:
+      Variables:
+        GEMINI_API_KEY: "AIzaSyCpufyUUpFtn1OjQNEtfvPHJCWqizTuEWE"
 
 Resources:
   HelloWorldFunction:
@@ -57,7 +60,6 @@ Resources:
             Path: /generate-diagram
             Method: post
 
-
 Outputs:
   # ServerlessRestApi is an implicit API created out of Events key under Serverless::Function
   # Find out more about other implicit resources you can reference within SAM
@@ -83,4 +85,3 @@ Outputs:
   GenerateDiagramFunction:
     Description: "GenerateDiagramFunction Lambda ARN"
     Value: !GetAtt GenerateDiagramFunction.Arn
-
