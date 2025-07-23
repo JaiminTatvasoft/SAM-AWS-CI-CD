@@ -2,13 +2,12 @@ import axios from "axios";
 
 export const generateDiagramHandler = async (event) => {
   let prompt = JSON.parse(event.body).prompt;
-  //   let prompt = event.prompt || "Generate a diagram based on the provided data.";
   console.log("Prompt received:", prompt);
 
-  const GEMINI_API_KEY = "AIzaSyA-iKZ8zrrWzZCnIupptSK1Oy6U2L5cYmo";
-  const GEMINI_ENDPOINT = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${GEMINI_API_KEY}`;
+  const GEMINI_API_KEY = "AIzaSyCpufyUUpFtn1OjQNEtfvPHJCWqizTuEWE";
+  const GEMINI_ENDPOINT = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=AIzaSyCpufyUUpFtn1OjQNEtfvPHJCWqizTuEWE`;
   const payload = {
-    contents: [{ parts: [{ text: "Hello, can you generate diagram?" }] }],
+    contents: [{ parts: [{ text: prompt }] }],
   };
 
   const resp = await axios.post(GEMINI_ENDPOINT, payload, {
@@ -16,12 +15,16 @@ export const generateDiagramHandler = async (event) => {
     timeout: 10000,
   });
 
-  console.log("Gemini response status:", resp);
+  const jsonResponse = resp.data.candidates[0].content.parts[0].text;
+
+  console.log("Gemini response status:", jsonResponse);
 
   const response = {
     statusCode: 200,
     body: JSON.stringify({
       message: "Diagram generated successfully!",
+      diagram: jsonResponse,
+      prompt: prompt,
     }),
   };
 
