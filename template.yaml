@@ -30,8 +30,10 @@ Resources:
     Type: AWS::Serverless::Function
     Properties:
       CodeUri: process-user/
-      Handler: app.handler
-      Runtime: nodejs20.x
+      Handler: app.processUserHandler
+      Runtime: nodejs22.x
+      Architectures:
+        - x86_64
       Events:
         ProcessUserAPI:
           Type: Api

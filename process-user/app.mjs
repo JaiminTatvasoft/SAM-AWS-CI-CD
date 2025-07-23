@@ -1,4 +1,4 @@
-export const handler = async (event) => {
+export const processUserHandler = async (event) => {
   console.log("Processing user data:", event);
 
   return {
